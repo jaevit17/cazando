@@ -21,12 +21,14 @@ function iniciarJuego(){
     graficarGato();
     graficarComida();
 }
-
-function graficarGato(){
-    ctx.fillStyle="#545454";
-    ctx.fillRect(gatoX,gatoY,ANCHO_GATO,ALTO_GATO);   
+//Dibuja cualquier rectángulo utilizando fillStyle y fillRect
+function graficarRectangulo(x,y,ancho,alto,color){
+    ctx.fillStyle=color;
+    ctx.fillRect(x,y,ancho,alto);
+}
+function graficarGato(){ 
+    graficarRectangulo(gatoX,gatoY,ANCHO_GATO,ALTO_GATO,"#545454");
 }
 function graficarComida(){
-    ctx.fillStyle="#D40000";
-    ctx.fillRect(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA);
+    graficarRectangulo(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA,"#D40000");
 }
