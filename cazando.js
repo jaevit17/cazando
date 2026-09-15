@@ -6,10 +6,10 @@ let gatoY=0;
 let comidaX=0;
 let comidaY=0;
 //Constantes
-const ALTO_GATO=55;
-const ANCHO_GATO=40;
-const ALTO_COMIDA=15;
-const ANCHO_COMIDA=35;
+const ALTO_GATO=70;
+const ANCHO_GATO=70;
+const ALTO_COMIDA=35;
+const ANCHO_COMIDA=65;
 
 function iniciarJuego(){
     //Gato centrado
@@ -70,6 +70,9 @@ function detectarColision(){
         comidaX<gatoX+ANCHO_GATO &&
         comidaY+ALTO_COMIDA>gatoY &&
         comidaY<gatoY+ALTO_GATO){
-        alert("RRR MIAU");
+        //Genera posicion aleatoria para posicion comida
+        comidaX=generarAleatorio(0,canvas.width-ANCHO_COMIDA);
+        comidaY=generarAleatorio(0,canvas.height-ALTO_COMIDA);
+        actualizarPantalla();
     }
 }
