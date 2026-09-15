@@ -36,11 +36,30 @@ function graficarComida(){
 function limpiarCanva(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
 }
-//mover izquierda
-function moverIzquierda(){
-    gatoX=gatoX-10;
+//actualizar Pantalla
+function actualizarPantalla(){
     limpiarCanva();
     graficarGato();
     graficarComida();
-    
+}
+
+//mover izquierda
+function moverIzquierda(){
+    gatoX=gatoX-10;
+    actualizarPantalla();
+}
+//mover derecha
+function moverDerecha(){
+    gatoX=gatoX+10;
+    actualizarPantalla();
+}
+//mover abajo
+function moverAbajo(){
+    gatoY=gatoY+10;
+    actualizarPantalla();
+}
+//mover arriba
+function moverArriba(){
+    gatoY=gatoY-10;
+    actualizarPantalla();
 }
