@@ -32,3 +32,15 @@ function graficarGato(){
 function graficarComida(){
     graficarRectangulo(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA,"#D40000");
 }
+//limpiar area de canvas
+function limpiarCanva(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+//mover izquierda
+function moverIzquierda(){
+    gatoX=gatoX-10;
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+    
+}
