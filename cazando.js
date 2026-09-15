@@ -41,6 +41,7 @@ function actualizarPantalla(){
     limpiarCanva();
     graficarGato();
     graficarComida();
+    detectarColision();
 }
 
 //mover izquierda
@@ -62,4 +63,13 @@ function moverAbajo(){
 function moverArriba(){
     gatoY=gatoY-10;
     actualizarPantalla();
+}
+//detectar colision
+function detectarColision(){
+    if(comidaX+ANCHO_COMIDA>gatoX &&
+        comidaX<gatoX+ANCHO_GATO &&
+        comidaY+ALTO_COMIDA>gatoY &&
+        comidaY<gatoY+ALTO_GATO){
+        alert("RRR MIAU");
+    }
 }
