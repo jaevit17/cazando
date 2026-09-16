@@ -10,10 +10,10 @@ let tiempo=10;
 let conteo=1000;//1000 milisegundos = 1 segundo
 let cuentaRegresiva;
 //Constantes
-const ALTO_GATO=70;
-const ANCHO_GATO=70;
-const ALTO_COMIDA=35;
-const ANCHO_COMIDA=65;
+const ALTO_GATO=160;
+const ANCHO_GATO=160;
+const ALTO_COMIDA=45;
+const ANCHO_COMIDA=75;
 
 function iniciarJuego(){
     cuentaRegresiva=setInterval(restarTiempo,conteo);
@@ -50,22 +50,22 @@ function actualizarPantalla(){
 }
 //mover izquierda
 function moverIzquierda(){
-    gatoX=gatoX-10;
+    gatoX=gatoX-40;
     actualizarPantalla();
 }
 //mover derecha
 function moverDerecha(){
-    gatoX=gatoX+10;
+    gatoX=gatoX+40;
     actualizarPantalla();
 }
 //mover abajo
 function moverAbajo(){
-    gatoY=gatoY+10;
+    gatoY=gatoY+40;
     actualizarPantalla();
 }
 //mover arriba
 function moverArriba(){
-    gatoY=gatoY-10;
+    gatoY=gatoY-40;
     actualizarPantalla();
 }
 //detectar colision
@@ -82,12 +82,31 @@ function detectarColision(){
         puntaje=puntaje+1;
         mostrarEnSpan("puntos",puntaje);
     }
+    //Puntaje 6 = alert GANADOR
+    if(puntaje==6){
+        alert("😸LOGRASTE COMERTE TODO!█▓▒░ GΛNΛDØR ░▒▓█ , ERES DE LOS MEJORES FELINOS ¡FELICIDADES GANADOR!! 🏆");
+        //detener setInterval
+        clearInterval(cuentaRegresiva);
+    }
 }
 //cuenta regresiva de tiempo
 function restarTiempo(){
     tiempo=tiempo-1;
     mostrarEnSpan("tiempo",tiempo);
+    //Tiempo = 0 alert GAMEOVER
     if(tiempo==0){
+        alert("█▓▒░ GΛME ØVER ░▒▓█ NO TE CANSES DE COMER HOY!");
+        //detener setInterval
         clearInterval(cuentaRegresiva);
     }
+}
+function reiniciar(){
+    limpiarCanva();
+    clearInterval(cuentaRegresiva);
+    conteo=1000;
+    puntaje=0;
+    tiempo=10;
+    mostrarEnSpan("puntos",puntaje);
+    mostrarEnSpan("tiempo",tiempo);
+    iniciarJuego();
 }
