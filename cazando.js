@@ -6,6 +6,9 @@ let gatoY=0;
 let comidaX=0;
 let comidaY=0;
 let puntaje=0;
+let tiempo=10;
+let conteo=1000;//1000 milisegundos = 1 segundo
+let cuentaRegresiva;
 //Constantes
 const ALTO_GATO=70;
 const ANCHO_GATO=70;
@@ -13,6 +16,7 @@ const ALTO_COMIDA=35;
 const ANCHO_COMIDA=65;
 
 function iniciarJuego(){
+    cuentaRegresiva=setInterval(restarTiempo,conteo);
     //Gato centrado
     gatoX=canvas.width/2-ANCHO_GATO/2;
     gatoY=canvas.height/2-ALTO_GATO/2;
@@ -44,7 +48,6 @@ function actualizarPantalla(){
     graficarComida();
     detectarColision();
 }
-
 //mover izquierda
 function moverIzquierda(){
     gatoX=gatoX-10;
@@ -78,5 +81,13 @@ function detectarColision(){
         actualizarPantalla();
         puntaje=puntaje+1;
         mostrarEnSpan("puntos",puntaje);
+    }
+}
+//cuenta regresiva de tiempo
+function restarTiempo(){
+    tiempo=tiempo-1;
+    mostrarEnSpan("tiempo",tiempo);
+    if(tiempo==0){
+        clearInterval(cuentaRegresiva);
     }
 }
