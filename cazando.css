@@ -1,42 +1,103 @@
-body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background: #f0f0f0;
-  margin: 0;
-  padding: 20px;
+:root{--bg:#020204;--bg2:#08080d;--white:#fff;--muted:#a9a9b5;--purple:#7b22ff;--purple-hot:#a34cff;--pink:#ff16b9;--pink-hot:#ff4dcb;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box}html{min-height:100%;background:var(--bg)}
+body{position:relative;min-height:100vh;margin:0;padding:28px 16px 36px;overflow-x:hidden;color:var(--white);text-align:center;font-family:Inter,Arial,Helvetica,sans-serif;background:radial-gradient(circle at 50% 0%,rgba(123,34,255,.18),transparent 36%),radial-gradient(circle at 80% 55%,rgba(255,22,185,.09),transparent 30%),linear-gradient(180deg,#020204 0%,#05050a 55%,#020204 100%)}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(2,2,4,.84),rgba(2,2,4,.94)),url("leon.png") center 45%/min(700px,82vw) auto no-repeat;opacity:.25;filter:saturate(.85) contrast(1.08) drop-shadow(0 0 28px rgba(255,22,185,.18))}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle,transparent 30%,rgba(0,0,0,.58) 100%)}body>*{position:relative;z-index:1}
+h1{margin:0 0 7px;font-size:clamp(32px,7vw,54px);line-height:1;font-weight:900;letter-spacing:-.04em;text-transform:uppercase;background:linear-gradient(90deg,#fff 0%,#fff 38%,var(--purple-hot) 72%,var(--pink-hot) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 28px rgba(123,34,255,.18)}
+body>p:first-of-type{margin:0 0 5px;color:#d8d8e1;font-size:14px}body>p:nth-of-type(2){display:inline-block;margin:4px 0 20px;padding:6px 12px;border:1px solid rgba(255,22,185,.45);border-radius:999px;color:#ff9be2;background:rgba(255,22,185,.06);box-shadow:0 0 20px rgba(255,22,185,.08);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+body>canvas,.controles,.panel,.reinicio,#mensaje{width:min(500px,100%);margin-left:auto;margin-right:auto}body>canvas{display:block;width:min(500px,100%);height:auto;aspect-ratio:1/1;border:1px solid rgba(255,255,255,.14);border-radius:26px;background:radial-gradient(circle at 50% 42%,rgba(123,34,255,.12),transparent 42%),linear-gradient(145deg,#090910,#020204);box-shadow:0 28px 70px rgba(0,0,0,.65),0 0 0 1px rgba(123,34,255,.08),0 0 34px rgba(123,34,255,.12),inset 0 0 45px rgba(123,34,255,.06)}
+.controles{margin-top:18px;padding:16px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-areas:". up ." "left down right";gap:8px;max-width:360px;border:1px solid rgba(255,255,255,.1);border-radius:22px;background:rgba(8,8,13,.76);box-shadow:0 18px 45px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.04);backdrop-filter:blur(14px)}
+.controles br{display:none}.controles button{position:relative;overflow:hidden;min-height:56px;margin:0;border:1px solid rgba(123,34,255,.34);border-radius:15px;color:#f4efff;background:linear-gradient(145deg,#15121e,#09080e);box-shadow:0 7px 18px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.05);font-size:24px;font-weight:800;cursor:pointer;transition:transform .2s var(--ease),border-color .2s var(--ease),box-shadow .2s var(--ease);-webkit-tap-highlight-color:transparent;touch-action:manipulation}.controles button::before{content:"";position:absolute;inset:-40% -80%;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.12) 50%,transparent 58%);transform:translateX(-55%);transition:transform .5s var(--ease);pointer-events:none}.controles button:hover{transform:translateY(-3px);border-color:rgba(163,76,255,.72);box-shadow:0 11px 26px rgba(0,0,0,.48),0 0 20px rgba(123,34,255,.13)}.controles button:hover::before{transform:translateX(55%)}.controles button:active{transform:translateY(1px) scale(.97)}.controles button:focus-visible{outline:2px solid var(--pink-hot);outline-offset:3px}.controles button:nth-child(1){grid-area:up}.controles button:nth-child(3){grid-area:down}.controles button:nth-child(2){grid-area:left}.controles button:nth-child(4){grid-area:right}
+.panel{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:360px}.panel>span{padding:13px 12px;border:1px solid rgba(255,255,255,.1);border-radius:15px;background:rgba(8,8,13,.72);box-shadow:0 12px 28px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.04);color:#aaaab8;font-size:13px;font-weight:700;letter-spacing:.04em;backdrop-filter:blur(12px)}.panel>span span{display:block;margin-top:3px;color:#fff;font-size:25px;line-height:1;font-weight:900}.panel>span:last-child span{color:var(--pink-hot);text-shadow:0 0 16px rgba(255,22,185,.3)}
+.reinicio{margin-top:12px}.reinicio button{position:relative;overflow:hidden;width:100%;max-width:360px;min-height:50px;padding:11px 18px;border:1px solid rgba(255,22,185,.58);border-radius:15px;color:#fff;background:linear-gradient(135deg,#ff16b9,#a51dff);box-shadow:0 10px 28px rgba(255,22,185,.2),inset 0 1px 0 rgba(255,255,255,.2);font-size:14px;font-weight:900;letter-spacing:.08em;cursor:pointer;transition:transform .2s var(--ease),box-shadow .2s var(--ease);-webkit-tap-highlight-color:transparent;touch-action:manipulation}.reinicio button:hover{transform:translateY(-3px);box-shadow:0 15px 34px rgba(255,22,185,.28),0 0 24px rgba(123,34,255,.16)}.reinicio button:active{transform:translateY(1px) scale(.98)}.reinicio button:focus-visible{outline:2px solid #fff;outline-offset:3px}#mensaje{min-height:24px;margin-top:13px;color:#ff8cdd;font-size:15px;font-weight:800}
+@media (max-width:520px){body{padding:22px 12px 28px}body::before{background:linear-gradient(180deg,rgba(2,2,4,.89),rgba(2,2,4,.96)),url("leon.png") center 35%/125vw auto no-repeat;opacity:.18}body>p:nth-of-type(2){margin-bottom:15px}body>canvas{border-radius:20px;box-shadow:0 20px 48px rgba(0,0,0,.62),0 0 0 1px rgba(123,34,255,.08),0 0 24px rgba(123,34,255,.1)}.controles{padding:12px;border-radius:18px}.controles button{min-height:52px;font-size:22px;border-radius:13px}}
+@media (max-width:360px){body{padding:18px 9px 24px}h1{font-size:30px}body>p:first-of-type{font-size:12px}.panel>span{padding:11px 8px}.panel>span span{font-size:22px}.controles button{min-height:48px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* =========================================================
+   AJUSTE FINAL DE CONTROLES — CRUCETA SIMETRICA + MOVIL
+   ========================================================= */
+.controles{
+  width:min(300px,100%);
+  max-width:300px;
+  padding:14px;
+  display:grid;
+  grid-template-columns:repeat(3,72px);
+  grid-template-rows:repeat(2,58px);
+  grid-template-areas:
+    ". up ."
+    "left down right";
+  justify-content:center;
+  align-items:center;
+  gap:8px;
 }
 
-h1 {
-  margin-bottom: 5px;
+.controles br{display:none}
+
+.controles button{
+  width:72px;
+  height:58px;
+  min-width:72px;
+  min-height:58px;
+  margin:0;
+  padding:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1;
+  text-align:center;
+  font-family:Arial,sans-serif;
+  font-size:25px;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;
+  -webkit-user-select:none;
 }
 
-.panel {
-  margin: 15px 0;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+/* Importante: nth-of-type ignora el <br> y deja las 4 flechas en su sitio */
+.controles button:nth-of-type(1){grid-area:up}
+.controles button:nth-of-type(2){grid-area:left}
+.controles button:nth-of-type(3){grid-area:down}
+.controles button:nth-of-type(4){grid-area:right}
+
+.controles button:active{
+  transform:scale(.94);
 }
 
-canvas {
-  background: white;
-  border: 2px solid black;
+@media (max-width:520px){
+  .controles{
+    width:294px;
+    max-width:calc(100vw - 24px);
+    padding:12px;
+    grid-template-columns:repeat(3,68px);
+    grid-template-rows:repeat(2,56px);
+    gap:7px;
+  }
+
+  .controles button{
+    width:68px;
+    height:56px;
+    min-width:68px;
+    min-height:56px;
+    font-size:23px;
+  }
 }
 
-.controles {
-  margin-top: 20px;
-}
+@media (max-width:360px){
+  .controles{
+    width:276px;
+    max-width:calc(100vw - 18px);
+    padding:10px;
+    grid-template-columns:repeat(3,64px);
+    grid-template-rows:repeat(2,53px);
+    gap:6px;
+  }
 
-button {
-  margin: 5px;
-  padding: 10px 16px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-#mensaje {
-  font-size: 20px;
-  font-weight: bold;
-  color: darkred;
-  margin-top: 15px;
+  .controles button{
+    width:64px;
+    height:53px;
+    min-width:64px;
+    min-height:53px;
+    font-size:22px;
+  }
 }
