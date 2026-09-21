@@ -1,0 +1,16 @@
+Toma rol de diseñador grafico y Programador de videojuegos Integra 
+las imagenes con diseño profesional tomando medidas perfectas 
+geometricas 
+CAMBIA MI CODIGO CSS 
+Imagenes: 
+backgroundFondo = backgroungImage 
+gatoAzul = esquina izquierda 
+gatoAmarillo = esquina derecha 
+
+La idea de: gatoAzul y gatoAmarillo es que vayan a la izquierda y derecha 
+en pequeño en las esquinas como que te dan una bienvenida con su mirada. 
+
+El titulo JUEGO CAZANDO podria cambiar de tono de izquierda a derecha 
+de azul blanco y terminar en amarillo. Dame los codigos o cambios por 
+separado con las instrucciones correctas para modificar. 
+Recuerda no cambiar nada de lo ya anterior logrado.

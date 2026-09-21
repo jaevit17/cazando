@@ -779,15 +779,15 @@ body > canvas,
 
     border:
         1px solid
-        rgba(255,255,255,.10);
+        rgba(149, 17, 72, 0.841);
 
     border-radius: 22px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(17,13,26,.88),
-            rgba(6,5,10,.92)
+            rgba(4, 4, 4, 0.88),
+            rgba(218, 217, 220, 0.219)
         );
 
     box-shadow:
@@ -1538,4 +1538,496 @@ body > canvas,
 
         transition: none !important;
     }
+}
+/* =========================================================
+   NUEVO DISEÑO — FONDO + GATOS DE BIENVENIDA + TITULO
+   ========================================================= */
+
+
+/* =========================================================
+   1. FONDO PRINCIPAL
+   ========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background:
+
+        /* Capa cinematográfica oscura */
+        linear-gradient(
+            180deg,
+            rgba(2, 3, 8, .35) 0%,
+            rgba(3, 3, 10, .28) 45%,
+            rgba(3, 2, 7, .50) 100%
+        ),
+
+        /* Imagen de fondo */
+        url("assets/backgroundFondo.png")
+        center center /
+        cover
+        no-repeat;
+
+    /* MÁS VISIBILIDAD DEL FONDO */
+    opacity: .85;
+
+    filter:
+        saturate(1.08)
+        contrast(1.05)
+        brightness(1.28);
+
+}
+
+
+/* =========================================================
+   2. OSCURECIMIENTO PARA MANTENER LEGIBILIDAD
+   ========================================================= */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            transparent 25%,
+            rgba(0,0,0,.28) 65%,
+            rgba(0,0,0,.72) 100%
+        );
+
+    opacity: .85;
+
+}
+
+
+/* =========================================================
+   3. CONTENEDOR DEL TITULO
+   ========================================================= */
+
+.game-header {
+
+    position: relative;
+
+    width: min(600px, 100%);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    z-index: 5;
+
+}
+
+
+/* =========================================================
+   4. GATO AZUL — ESQUINA IZQUIERDA
+   ========================================================= */
+
+.game-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -105px;
+
+    top: 8px;
+
+    width: 105px;
+
+    height: 135px;
+
+    background-image:
+        url("assets/gatoAzul.png");
+
+    background-repeat: no-repeat;
+
+    background-position:
+        center bottom;
+
+    background-size:
+        contain;
+
+    pointer-events: none;
+
+    opacity: .92;
+
+    filter:
+
+        drop-shadow(
+            0 0 8px
+            rgba(0, 102, 255, .65)
+        )
+
+        drop-shadow(
+            0 0 20px
+            rgba(0, 102, 255, .28)
+        );
+
+    transform-origin:
+        bottom center;
+
+    animation:
+        gatoAzulEntrada 4s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   5. GATO AMARILLO — ESQUINA DERECHA
+   ========================================================= */
+
+.game-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: -105px;
+
+    top: 8px;
+
+    width: 105px;
+
+    height: 135px;
+
+    background-image:
+        url("assets/gatoAmarillo.png");
+
+    background-repeat: no-repeat;
+
+    background-position:
+        center bottom;
+
+    background-size:
+        contain;
+
+    pointer-events: none;
+
+    opacity: .92;
+
+    filter:
+
+        drop-shadow(
+            0 0 8px
+            rgba(255, 193, 7, .65)
+        )
+
+        drop-shadow(
+            0 0 20px
+            rgba(255, 193, 7, .25)
+        );
+
+    transform-origin:
+        bottom center;
+
+    animation:
+        gatoAmarilloEntrada 4s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   6. ANIMACION GATO AZUL
+   ========================================================= */
+
+@keyframes gatoAzulEntrada {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        opacity: .82;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-5px)
+            scale(1.025);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================================================
+   7. ANIMACION GATO AMARILLO
+   ========================================================= */
+
+@keyframes gatoAmarilloEntrada {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(-2px)
+            scale(1);
+
+        opacity: .82;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-7px)
+            scale(1.025);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================================================
+   8. TITULO — AZUL → BLANCO → AMARILLO
+   ========================================================= */
+
+.game-header h1 {
+
+    position: relative;
+
+    z-index: 6;
+
+    background:
+
+        linear-gradient(
+            90deg,
+
+            #168cff 0%,
+
+            #62c9ff 22%,
+
+            #ffffff 46%,
+
+            #ffffff 55%,
+
+            #fff4a3 76%,
+
+            #ffd21f 100%
+        );
+
+    background-size:
+        200% auto;
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    -webkit-text-fill-color: transparent;
+
+    filter:
+
+        drop-shadow(
+            0 0 10px
+            rgba(0, 132, 255, .30)
+        )
+
+        drop-shadow(
+            0 0 14px
+            rgba(255, 210, 31, .18)
+        );
+
+    animation:
+        tituloColor 5s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   9. MOVIMIENTO SUAVE DEL GRADIENTE
+   ========================================================= */
+
+@keyframes tituloColor {
+
+    0%,
+    100% {
+
+        background-position:
+            0% center;
+
+    }
+
+    50% {
+
+        background-position:
+            100% center;
+
+    }
+
+}
+
+
+/* =========================================================
+   10. RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .game-header::before {
+
+        left: -48px;
+
+        top: 25px;
+
+        width: 75px;
+
+        height: 100px;
+
+        opacity: .72;
+
+    }
+
+
+    .game-header::after {
+
+        right: -48px;
+
+        top: 25px;
+
+        width: 75px;
+
+        height: 100px;
+
+        opacity: .72;
+
+    }
+
+}
+
+
+/* =========================================================
+   11. RESPONSIVE — MOVIL
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+    body::before {
+
+        background:
+
+            linear-gradient(
+                180deg,
+                rgba(2, 3, 8, .84),
+                rgba(3, 3, 10, .93)
+            ),
+
+            url("assets/backgroundFondo.png")
+            center center /
+            cover
+            no-repeat;
+
+        opacity: .58;
+
+    }
+
+
+    .game-header::before {
+
+        left: -24px;
+
+        top: 34px;
+
+        width: 58px;
+
+        height: 82px;
+
+        opacity: .65;
+
+    }
+
+
+    .game-header::after {
+
+        right: -24px;
+
+        top: 34px;
+
+        width: 58px;
+
+        height: 82px;
+
+        opacity: .65;
+
+    }
+
+
+    .game-header h1 {
+
+        font-size:
+            clamp(30px, 10vw, 45px);
+
+    }
+
+}
+
+
+/* =========================================================
+   12. TELEFONOS MUY PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .game-header::before {
+
+        left: -14px;
+
+        top: 39px;
+
+        width: 48px;
+
+        height: 68px;
+
+        opacity: .55;
+
+    }
+
+
+    .game-header::after {
+
+        right: -14px;
+
+        top: 39px;
+
+        width: 48px;
+
+        height: 68px;
+
+        opacity: .55;
+
+    }
+
+
+    .game-header h1 {
+
+        font-size: 29px;
+
+    }
+
 }
