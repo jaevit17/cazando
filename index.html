@@ -5,26 +5,97 @@
     <link rel="stylesheet" href="cazando.css"/>
   </head>
   <body onload="iniciarJuego()">
-
-    <h1>Juego Cazando</h1>
-    <p>Autor: Tu Nombre Josue Vilcacundo</p>
-    <P>Bienvenido</P>
-    <canvas id="areaJuego" width="500" height="500"></canvas>
-    <div class="controles">
-      <button onclick="moverArriba()">⬆</button>
-      <br>
-      <button onclick="moverIzquierda()">⬅</button>
-      <button onclick="moverAbajo()">⬇</button>
-      <button onclick="moverDerecha()">➡</button>
-    </div>
-    <div class="panel">
-      <span>Puntos: <span id="puntos">0</span></span>
-      <span>Tiempo: <span id="tiempo">10</span></span>
-    </div>
-    <div class="reinicio">
-      <button onclick="reiniciar()">VOLVER A JUGAR</button>
-    </div>
-    <p id="mensaje"></p>
+    <!-- CABECERA DEL JUEGO -->
+    <header class="game-header">
+        <div class="game-badge">
+            <span class="badge-dot"></span>
+            GAME MODE
+        </div>
+        <h1>JUEGO CAZANDO</h1>
+        <p class="autor">
+            Autor: Tu Nombre Josue Vilcacundo
+        </p>
+        <p class="bienvenida">
+            ⚡ ATRAPA LA CROQUETA ⚡
+        </p>
+    </header>
+    <!-- DECORACIÓN DEL ENTORNO -->
+    <div class="ambient ambient-1"></div>
+    <div class="ambient ambient-2"></div>
+    <div class="ambient ambient-3"></div>
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="game-container">
+        <!-- HUD SUPERIOR -->
+        <div class="hud-top">
+            <span class="hud-line"></span>
+            <span class="hud-label">
+                ● LIVE GAME
+            </span>
+            <span class="hud-line"></span>
+        </div>
+        <!-- CANVAS -->
+        <div class="canvas-wrapper">
+            <div class="canvas-glow"></div>
+            <canvas
+                id="areaJuego"
+                width="500"
+                height="500">
+            </canvas>
+            <span class="corner corner-tl"></span>
+            <span class="corner corner-tr"></span>
+            <span class="corner corner-bl"></span>
+            <span class="corner corner-br"></span>
+        </div>
+        <!-- CONTROLES -->
+        <div class="controles">
+            <button
+                type="button"
+                aria-label="Mover arriba"
+                onclick="moverArriba()">
+                ⬆
+            </button>
+            <br>
+            <button
+                type="button"
+                aria-label="Mover izquierda"
+                onclick="moverIzquierda()">
+                ⬅
+            </button>
+            <button
+                type="button"
+                aria-label="Mover abajo"
+                onclick="moverAbajo()">
+                ⬇
+            </button>
+            <button
+                type="button"
+                aria-label="Mover derecha"
+                onclick="moverDerecha()">
+                ➡
+            </button>
+        </div>
+        <!-- PANEL DE INFORMACIÓN -->
+        <div class="panel">
+            <span class="stat-card">
+                <small>★ SCORE</small>
+                <span id="puntos">0</span>
+            </span>
+            <span class="stat-card">
+                <small>◷ TIME</small>
+                <span id="tiempo">10</span>
+            </span>
+        </div>
+        <!-- REINICIO -->
+        <div class="reinicio">
+            <button
+                type="button"
+                onclick="reiniciar()">
+                ↻ &nbsp; VOLVER A JUGAR
+            </button>
+        </div>
+        <!-- MENSAJE DEL JUEGO -->
+        <p id="mensaje"></p>
+    </main>
     <script src="cazando.js"></script>
     <script src="utils.js"></script>
   </body>

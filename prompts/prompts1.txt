@@ -1,0 +1,11 @@
+Toma un rol del mejor DISEÑADOR DE INTERFASES GRAFICAS DE VIDEOJUEGOS WEB, 
+ten en cuenta los colores usados violeta rosa rojiso como tema en general.
+
+Objetivo: mejorar el diseño actual implementando objetos y animaciones que 
+creen la perfecta visibilidad del game.
+Acciones: 
+1. mejora la visibilidad de los botones, y recuerda acomodarlos perfectamente para cuando abran la web en movil
+2. crea objetos adicionales pequeños que acomoden un entorno de querer jugar el gameplay
+3. haz animaciones mas llamativas 
+
+Dame los codigos o cambios por separado con las instrucciones correctas para modificar.
